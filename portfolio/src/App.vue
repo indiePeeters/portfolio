@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import myExperience from '@/components/MyExperience.vue'
+import AboutMe from '@/components/AboutMe.vue'
+import MyExperience from '@/components/MyExperience.vue'
 </script>
 
 <template>
-  <div>
-    <myExperience/>
+  <div class="content">
+    <AboutMe/>
+    <MyExperience/>
     <RouterView />
   </div>
 </template>
@@ -18,6 +20,15 @@ body {
 </style>
 
 <style scoped>
+
+.content {
+  display: flex;
+  flex-direction: column;
+  row-gap: 32px;
+  max-width: 700px;
+  width: 100%;
+}
+
 header {
   line-height: 1.5;
   max-height: 100vh;
