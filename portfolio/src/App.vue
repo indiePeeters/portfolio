@@ -1,17 +1,23 @@
-<script setup lang="ts">
-import AboutMe from '@/components/AboutMe.vue'
-import MyExperience from '@/components/MyExperience.vue'
-</script>
-
 <template>
-  <div class="content">
-    <AboutMe/>
-    <MyExperience/>
-    <RouterView />
+  <div>
+    <div class="content">
+      <HomeHeader/>
+      <MySkills/>
+      <AboutMe/>
+      <MyExperience/>
+      <RouterView />
+    </div>
   </div>
 </template>
 
-<style>
+<script setup lang="ts">
+import MySkills from '@/components/MySkills/MySkills.vue'
+import AboutMe from '@/components/AboutMe.vue'
+import MyExperience from '@/components/myExperience/MyExperience.vue'
+import HomeHeader from './components/HomeHeader.vue'
+</script>
+
+<style lang="scss">
 @import '@/styles/index.scss';
 
 body {
@@ -19,7 +25,7 @@ body {
 }
 </style>
 
-<style scoped>
+<style lang="scss" scoped>
 
 .content {
   display: flex;

@@ -15,7 +15,14 @@
   </div>
 </template>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
+
+@media only screen and (max-width: 600px) {
+  .about-me-description {
+    flex-wrap: wrap-reverse;
+  }
+}
+
 .line {
   flex: 1 1 0;
   height: 0px;
@@ -53,11 +60,12 @@
   align-self: stretch;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 9px;
+  gap: 36px;
   display: inline-flex;
 }
 
 .portrait {
+  width:100%;
   max-width: 345px;
   max-height: 345px;
   flex: 1 1 0; 
