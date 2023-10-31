@@ -2,7 +2,7 @@
   <div ref="skillsContainer" class="home-header">
     <div class="home-header-content">
       <span class="home-header-title typing-words">
-        <span>Hi! I am Indie, a<span ref="typingJobTitle" class="typing-job-title"></span></span>
+        <span>Hi! I am Indie<span ref="typingJobTitle" class="typing-job-title"></span></span>
       </span>
       <div class="home-header-buttons">
         <PrimaryButton buttonText="More about me" @click="logKaas()"/>
@@ -127,13 +127,13 @@ export default defineComponent({
 
   @include typed(
     (
-      " Web\A developer": (
+      ", a Web\A developer": (
           color: #FFFFFF
       ),
-      "n App\A developer": (
+      ", an App\A developer": (
           color: #FFFFFF
       ),
-      "n UX\A designer": (
+      ", an UX\A designer": (
         color: #FFFFFF
       )
     ),

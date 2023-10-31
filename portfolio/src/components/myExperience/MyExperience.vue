@@ -4,11 +4,23 @@
       <div class="my-experience-title">My experience</div>
       <div class="line"/>
     </div>
-    <div :key="currentItemIndex">
-      <div v-for="(experience, index) in experiences" :key="experience.company">
-        <ExperienceItem v-if="index == currentItemIndex" :roleTitle="experience.roleTitle" :roleDescription="experience.roleDescription" :company="experience.company" :companyLogo="experience.companyLogo" :startYear="experience.startYear" :endYear="experience.endYear"/>
-      </div>
+    
+    <div class="experience-list">
+      <ExperienceItem
+        v-for="experience in experiences"
+        v-show="experience.id === selectedExperience.id"
+        :class="{'visible': experience.id === selectedExperience.id}"
+        :key="experience.id"
+        :roleTitle="selectedExperience.roleTitle"
+        :roleDescription="selectedExperience.roleDescription"
+        :company="selectedExperience.company"
+        :companyLogo="selectedExperience.companyLogo"
+        :startYear="selectedExperience.startYear"
+        :endYear="selectedExperience.endYear"
+      />
     </div>
+    {{ t.experience.whyellowDescription }}
+
     <div class="timeline-container">
       <div class="timeline-item">
         <div class="hidden timeline-year">2019</div>
@@ -45,26 +57,38 @@
 <script lang="ts">
 import ExperienceItem from '@/components/MyExperience/ExperienceItem.vue'
 import { defineComponent, ref } from 'vue'
+import { t } from '@/locales/i18n'
+import type Translations from '@/locales/Translations';
 
 export default defineComponent({
   components: {
     ExperienceItem
   },
   setup() {
-    const currentItemIndex = ref(0)
+    const show = ref(false);
+    const currentExperienceIndex = ref(0)
     const experiences = [
-      { companyLogo: 'mapcreator.png', roleTitle: 'Support & development', company: 'Mapcreator, Eindhoven', roleDescription: 'During my time at Whyellow, I worked with a dedicated team on two big projects. I was one of the few team members who loved frontend development, so I ended up handling the frontend work for both projects.<br /><br />One of these projects was a web system for Partou, which I\'ll talk about more here. During this project, I took on some major tasks and gradually became one of the more experienced team members. As the project continued, I also took over the responsibility of making the user experience and design better. <br /><br /> On top of all that, I had the chance to help out junior software developers and show them the ropes in frontend development.', startYear: 2019, endYear: null},
-      { companyLogo: 'opencircleSolutions.png', roleTitle: 'Intership Augmented Reality', company: 'Open circle solutions, Eindhoven', roleDescription: 'During my graduation internship at Open Circle Solutions, I examined the potential of integrating augmented reality into cross-platform applications. Beyond acquainting myself with the rudiments of augmented reality, I delved into diverse strategies for conceptualizing and implementing augmented reality within cross platform frameworks, aiming to improve the development process.', startYear: 2019, endYear: null},
-      { companyLogo: 'whyellow.png', roleTitle: 'Software developer (current)', company: 'Whyellow, Eindhoven', roleDescription: 'During my time at Whyellow, I worked with a dedicated team on two big projects. I was one of the few team members who loved frontend development, so I ended up handling the frontend work for both projects.<br /><br />One of these projects was a web system for Partou, which I\'ll talk about more here. During this project, I took on some major tasks and gradually became one of the more experienced team members. As the project continued, I also took over the responsibility of making the user experience and design better. <br /><br /> On top of all that, I had the chance to help out junior software developers and show them the ropes in frontend development.', startYear: 2019, endYear: null},
+      { id:0, companyLogo: 'mapcreator.png', roleTitle: 'Support & development', company: 'Mapcreator, Eindhoven', roleDescription: 'During my time at Whyellow, I worked with a dedicated team on two big projects. I was one of the few team members who loved frontend development, so I ended up handling the frontend work for both projects.<br /><br />One of these projects was a web system for Partou, which I\'ll talk about more here. During this project, I took on some major tasks and gradually became one of the more experienced team members. As the project continued, I also took over the responsibility of making the user experience and design better. <br /><br /> On top of all that, I had the chance to help out junior software developers and show them the ropes in frontend development.', startYear: 2019, endYear: NaN},
+      { id:1, companyLogo: 'opencircleSolutions.png', roleTitle: 'Intership Augmented Reality', company: 'Open circle solutions, Eindhoven', roleDescription: 'During my graduation internship at Open Circle Solutions, I examined the potential of integrating augmented reality into cross-platform applications. Beyond acquainting myself with the rudiments of augmented reality, I delved into diverse strategies for conceptualizing and implementing augmented reality within cross platform frameworks, aiming to improve the development process.', startYear: 2019, endYear: NaN},
+      { id:2, companyLogo: 'whyellow.png', roleTitle: 'Software developer (current)', company: 'Whyellow, Eindhoven', roleDescription:'undefined', startYear: 2019, endYear: NaN},
     ]
     return {
       experiences,
-      currentItemIndex
+      currentExperienceIndex,
+      show
+    }
+  },
+  computed: {
+    selectedExperience() {
+      return this.experiences[this.currentExperienceIndex]
+    },
+    t() : Translations {
+      return t;
     }
   },
   methods: {
-    setCurrentItemIndex(currentItemIndexs: number) {
-      this.currentItemIndex = currentItemIndexs
+    setCurrentItemIndex(currentItemIndex: number) {
+      this.currentExperienceIndex = currentItemIndex
     }
   }
 })
@@ -191,5 +215,18 @@ export default defineComponent({
   font-weight: bold !important;
 }
 
+.experience-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.experience-list .visible {
+  opacity: 1;
+  transition: opacity 1s;
+}
+
+.experience-list .visible + .visible {
+  transition-delay: 1s;
+}
 
 </style>

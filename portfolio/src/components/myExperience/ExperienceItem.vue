@@ -66,6 +66,7 @@ export default defineComponent({
   }
 
 .company-experience-container {
+  min-height: 318px;
   align-self: stretch;
   padding: 16px;
   background: rgba(34.40, 30.71, 72.25, 0);
@@ -107,7 +108,6 @@ export default defineComponent({
 }
 
 .role-title {
-  width: calc(100% - 80px);
   height: 31px;
   color: #FFFCF9;
   font-size: 24px;
