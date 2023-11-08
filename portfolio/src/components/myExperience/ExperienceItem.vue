@@ -1,28 +1,31 @@
 <template>
-  <div class="company-experience-container">
-    <div class="company-icon">
-        <img style="width: 40px; height: 40px" :src="imageSrc(companyLogo)" />
-      </div>
-    <div class="experience-container">
-      <div class="experience-header-container">
-        <div class="company-icon-mobile">
+  <transition name="fade" :key="experienceIndex">
+    <div class="company-experience-container">
+      <div class="company-icon">
           <img style="width: 40px; height: 40px" :src="imageSrc(companyLogo)" />
         </div>
-        <div class="role-title-container">
-          <div class="role-title"> {{ roleTitle }}</div>
-          <div class="company-name"> {{ company }} </div>
+      <div class="experience-container">
+        <div class="experience-header-container">
+          <div class="company-icon-mobile">
+            <img style="width: 40px; height: 40px" :src="imageSrc(companyLogo)" />
+          </div>
+          <div class="role-title-container">
+            <div class="role-title"> {{ roleTitle }}</div>
+            <div class="company-name"> {{ company }} </div>
+          </div>
+        </div>
+        <div class="role-description">
+            <span v-html="roleDescription"> </span>
         </div>
       </div>
-      <div class="role-description">
-          <span v-html="roleDescription"> </span>
-      </div>
     </div>
-  </div>
+  </transition>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
 export default defineComponent({
   props: {
+    experienceIndex: Number,
     roleTitle: String,
     roleDescription: String,
     company: String,
@@ -74,7 +77,7 @@ export default defineComponent({
   justify-content: flex-start;
   align-items: flex-start;
   gap: 16px;
-  display: flex
+  display: flex;
 }
 
 .company-icon {
@@ -130,5 +133,11 @@ export default defineComponent({
   font-family: Roboto;
   font-weight: 400;
   word-wrap: break-word
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
 </style>

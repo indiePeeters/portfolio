@@ -1,8 +1,19 @@
-import type { LocaleMessageObject } from 'vue-i18n'
-
-type LocaleMessages = LocaleMessageObject & {
+export interface Translations {
   experience: {
-    whyellowDescription: string,
+    titles: {
+      mapcreatorTitle: string,
+      openCircleTitle: string,
+      whyellowTitle: string,
+    },
+    companies: {
+      whyellow: string,
+      mapcreator: string,
+      opencircle: string
+    },
+    descriptions: {
+      mapcreatorDescription: string,
+      openCircleDescription: string,
+      whyellowDescription: string,
+    }
   }
 }
-export default LocaleMessages
