@@ -25,8 +25,8 @@
 </template>
 
 <script lang="ts">
-import ExperienceItem from '@/components/MyExperience/ExperienceItem.vue'
-import ExperienceTimeline from './ExperienceTimeline.vue'
+import ExperienceItem from '@/features/myExperience/ExperienceItem.vue'
+import ExperienceTimeline from '@/features/myExperience/ExperienceTimeline.vue'
 import { globalTranslations } from '@/locales/i18n'
 import { defineComponent, ref } from 'vue'
 

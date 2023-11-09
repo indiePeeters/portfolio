@@ -25,18 +25,18 @@
 import { defineComponent } from 'vue'
 export default defineComponent({
   props: {
-    experienceIndex: Number,
-    roleTitle: String,
-    roleDescription: String,
-    company: String,
-    companyLogo: String,
-    startYear: Number,
-    endYear: Number
+    experienceIndex: { type: Number },
+    roleTitle: { type: String },
+    roleDescription: { type: String },
+    company: { type: String, required: true },
+    companyLogo: { type: String, required: true },
+    startYear: { type: Number, required: true },
+    endYear: { type: Number },
   },
   setup() {
   },
   methods: {
-    imageSrc(imageName : String) {
+    imageSrc(imageName : string) : string {
       const path = new URL(`@/assets/`, import.meta.url)
       return `${path}/${imageName}`;
     }

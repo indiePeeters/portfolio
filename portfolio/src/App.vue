@@ -11,10 +11,10 @@
 </template>
 
 <script setup lang="ts">
-import MySkills from '@/components/MySkills/MySkills.vue'
-import AboutMe from '@/components/AboutMe.vue'
-import MyExperience from '@/components/myExperience/MyExperience.vue'
-import HomeHeader from './components/HomeHeader.vue'
+import MySkills from '@/features/mySkills/MySkills.vue'
+import AboutMe from '@/features/AboutMe/AboutMe.vue'
+import MyExperience from '@/features/myExperience/MyExperience.vue'
+import HomeHeader from './features/HomeHeader/HomeHeader.vue'
 </script>
 
 <style lang="scss">

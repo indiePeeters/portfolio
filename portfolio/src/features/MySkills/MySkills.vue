@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts">
-import SkillCard from '@/components/MySkills/SkillCard.vue'
+import SkillCard from '@/features/MySkills/SkillCard.vue'
 import { defineComponent, onMounted, ref } from 'vue'
 
 type Skill = {

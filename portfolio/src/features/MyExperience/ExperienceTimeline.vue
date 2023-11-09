@@ -32,9 +32,6 @@
 import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
-  props: {
-
-  },
   setup() {
     var currentExperienceIndex = ref(0)
     return {
