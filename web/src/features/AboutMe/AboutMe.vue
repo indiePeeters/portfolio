@@ -10,7 +10,7 @@
             <br/>
             <div>In my personal life, I continuously seek out challenges that push my boundaries. I have a deep passion for climbing, hiking, biking, and skiing. Throughout the year, my days are often spent in the boulder gym, strumming my guitar, and dedicating time to crafting my own campervan. When summer arrives, I immerse myself in my outdoor enthusiast spirit, venturing into the Alps to conquer the highest peaks.</div>
         </div>
-        <img class="portrait" src="@/assets/portrait.jpeg" />
+        <img class="portrait" src="/assets/portrait.jpeg" />
     </div>
   </div>
 </template>

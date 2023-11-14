@@ -3,7 +3,7 @@
     <div class="timeline-item">
       <div class="hidden timeline-year">0000</div>
       <div class="timeline-icon" :class="{large: currentExperienceIndex == 0}" @click="onCurrentExperienceIndexChanged(0)">
-        <img src="@/assets/mapcreator.png" />
+        <img src="/assets/mapcreator.png" />
       </div>
       <div class="timeline-year" :class="{hidden: currentExperienceIndex !== 0}">2019</div>
     </div>
@@ -12,7 +12,7 @@
     <div class="timeline-item">
       <div class="hidden timeline-year">0000</div>
       <div class="timeline-icon" :class="{large: currentExperienceIndex == 1}" @click="onCurrentExperienceIndexChanged(1)">
-        <img src="@/assets/opencirclesolutions.png" />
+        <img src="/assets/opencirclesolutions.png" />
       </div>
       <div class="timeline-year" :class="{hidden: currentExperienceIndex !== 1}">2019</div>
     </div>
@@ -21,7 +21,7 @@
     <div class="timeline-item">
       <div class="hidden timeline-year">0000</div>
       <div class="timeline-icon" :class="{large: currentExperienceIndex == 2}" @click="onCurrentExperienceIndexChanged(2)">
-        <img src="@/assets/whyellow.png" />
+        <img src="/assets/whyellow.png" />
       </div>
       <div class="timeline-year" :class="{hidden: currentExperienceIndex !== 2}">2019</div>
     </div>

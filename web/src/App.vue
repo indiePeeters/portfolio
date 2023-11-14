@@ -11,10 +11,10 @@
 </template>
 
 <script setup lang="ts">
-import MySkills from '@/features/mySkills/MySkills.vue'
+import MySkills from '@/features/MySkills/MySkills.vue'
 import AboutMe from '@/features/AboutMe/AboutMe.vue'
-import MyExperience from '@/features/myExperience/MyExperience.vue'
-import HomeHeader from './features/HomeHeader/HomeHeader.vue'
+import MyExperience from '@/features/MyExperience/MyExperience.vue'
+import HomeHeader from '@/features/HomeHeader/HomeHeader.vue'
 </script>
 
 <style lang="scss">
@@ -28,6 +28,8 @@ body {
 <style lang="scss" scoped>
 
 .content {
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   flex-direction: column;
   row-gap: 32px;
