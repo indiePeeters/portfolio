@@ -1,10 +1,10 @@
 <template>
     <div class="my-skills">
       <div class="title-container">
-        <div class="my-skills-title">My skills</div>
+        <div class="my-skills-title"><a id="my-skills"> My skills</a></div>
         <div class="line"></div>
       </div>
-      <div ref="skillsContainer" class="skills-container">
+      <div ref="skillsContainer" class="skills-container" @mouseenter="stopAutoScroll" @mouseleave="startAutoScroll">
         <div class="card-item" :key="skill.name" v-for="skill in skills">
             <SkillCard :title="skill.name" :imageName="skill.imageName" />
         </div>
@@ -27,9 +27,8 @@ export default defineComponent({
   },
   setup() {
     let autoScrollEnabled = true
-    const skillsContainer = ref<HTMLDivElement>()
-
-    const skills : Skill[] = [
+    const skillsContainer = ref<HTMLDivElement>().value ?? undefined 
+    const skills = ref<Skill[]>([
       { name: "React", imageName: "reactLogo.png"},
       { name: "Vue", imageName: "vueLogo.png"},
       { name: "Graphql", imageName: "graphqlLogo.png"},
@@ -41,38 +40,60 @@ export default defineComponent({
       { name: "Dotnet", imageName: "dotnetCoreLogo.png"},
       { name: "Dotnet", imageName: "dotnetCoreLogo.png"},
       { name: "Dotnet", imageName: "dotnetCoreLogo.png"},
-      { name: "Dotnet", imageName: "dotnetCoreLogo.png"},
-      { name: "Dotnet", imageName: "dotnetCoreLogo.png"},
-      { name: "Dotnet", imageName: "dotnetCoreLogo.png"},
-      { name: "Dotnet", imageName: "dotnetCoreLogo.png"},
       { name: "Dotnet", imageName: "dotnetCoreLogo.png"}
-    ]
+    ]).value
 
-    const autoScroll = () => {
-      if(skillsContainer.value && autoScrollEnabled) {
-        skillsContainer.value.scrollBy(0, 2)
-        setTimeout(autoScroll, 40);
-      }
-    }
-
-    onMounted(() => {
-      autoScroll()
-      if(skillsContainer.value) {
-        skillsContainer.value.addEventListener('mouseenter', () => {
-          autoScrollEnabled = false
-        })
-
-        skillsContainer.value.addEventListener('mouseleave', () => {
-          autoScrollEnabled = true
-          autoScroll()
-        })
-      }
-    })
+    const originalSkillsLength = skills.length
 
     return {
+      originalSkillsLength,
+      autoScrollEnabled,
       skillsContainer,
       skills,
       onMounted
+    }
+  },
+  mounted() {
+    this.autoScroll()
+    if(this.skillsContainer) {
+      this.skillsContainer.addEventListener('mouseenter', () => {
+        this.autoScrollEnabled = false
+      })
+
+      this.skillsContainer.addEventListener('mouseleave', () => {
+        this.autoScrollEnabled = true
+        this.autoScroll()
+      })
+    
+      this.skillsContainer.addEventListener('scroll', () => {
+        // Check if the scroll bar has reached the bottom
+        if(this.skillsContainer) {
+          const isAtBottom =
+            this.skillsContainer.scrollTop + this.skillsContainer.clientHeight >=
+            this.skillsContainer.scrollHeight;
+
+          if (isAtBottom && this.autoScrollEnabled) {
+            for (let i = 0; i < this.originalSkillsLength; i++) {
+              this.skills.push({ name: this.skills[i].name, imageName: this.skills[i].imageName });
+            }
+          }
+        }
+      })
+    }
+  },
+  methods: {
+    stopAutoScroll () {
+      this.autoScrollEnabled = false;
+    },
+    startAutoScroll () {
+      this.autoScrollEnabled = true;
+      this.autoScroll();
+    },
+    autoScroll() {
+      if(this.skillsContainer && this.skillsContainer && this.autoScrollEnabled) {
+        this.skillsContainer.scrollBy(0, 2)
+        setTimeout(this.autoScroll, 50);
+      }
     }
   }
 })
@@ -117,6 +138,7 @@ export default defineComponent({
   overflow-y: scroll;
   max-height: 400px;
   padding-bottom: 8px;
+  overflow: hidden !important;
 }
 .skills-container::-webkit-scrollbar-thumb {
   background: #00A396; 

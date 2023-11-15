@@ -5,8 +5,8 @@
         <span>Hi! I am Indie<span ref="typingJobTitle" class="typing-job-title"></span></span>
       </span>
       <div class="home-header-buttons">
-        <PrimaryButton buttonText="More about me"/>
-        <PrimaryButton buttonText="More about my projects"/>
+        <a class="no-underline" href="#about-me"><PrimaryButton buttonText="More about me"/></a>
+        <a class="no-underline" href="#my-projects"><PrimaryButton buttonText="More about my projects"/></a>
       </div>
       <div class="home-header-text">I am a passionate software developer in love with everything related front-end development. Guided by a user-centric approach, I craft solutions that not only resonate but also leave a lasting impact on the end users' experiences.</div>
     </div>
@@ -21,7 +21,6 @@ export default defineComponent({
     PrimaryButton
   },
   setup: () => {
-    const skillsContainer = ref()
     const typingJobTitle = ref()
 
     const textLoad = () => {
@@ -83,6 +82,10 @@ export default defineComponent({
   .home-header-content {
     margin-top: 0px !important;
   }
+}
+
+.no-underline {
+  text-decoration: none;
 }
 
 .home-header-content {

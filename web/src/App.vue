@@ -3,9 +3,9 @@
     <div class="content">
       <HomeHeader/>
       <MySkills/>
-      kaas
       <AboutMe/>
       <MyExperience/>
+      <MyProjects/>
       <RouterView />
     </div>
   </div>
@@ -16,6 +16,7 @@ import MySkills from '@/features/MySkills/MySkills.vue'
 import AboutMe from '@/features/AboutMe/AboutMe.vue'
 import MyExperience from '@/features/MyExperience/MyExperience.vue'
 import HomeHeader from '@/features/HomeHeader/HomeHeader.vue'
+import MyProjects from '@/features/MyProjects/MyProjects.vue';
 </script>
 
 <style lang="scss">
@@ -28,12 +29,20 @@ body {
 
 <style lang="scss" scoped>
 
+@media only screen and (max-width: 600px) {
+  .content {
+    padding-left: 16px;
+    padding-right: 16px;
+    width: calc(100% - 32px) !important
+  }
+}
+
 .content {
   margin-left: auto;
   margin-right: auto;
   display: flex;
   flex-direction: column;
-  row-gap: 32px;
+  row-gap: 40px;
   max-width: 700px;
   width: 100%;
 }

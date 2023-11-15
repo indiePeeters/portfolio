@@ -82,6 +82,13 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 
+@media only screen and (max-width: 600px) {
+  .timeline-container {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+}
+
 .timeline-container {
   align-self: stretch;
   width:100%;
@@ -145,8 +152,12 @@ export default defineComponent({
   border-radius: 30px;
   justify-content: flex-start;
   align-items: center;
-  height: 52px;
-}
+  padding: 9px;
+  gap: 5px;
+  img {
+    width: 40px;
+    height: 40px;
+  }}
 
 .line {
   flex: 1 1 0; height: 0px; border: 1px #00A396 solid;

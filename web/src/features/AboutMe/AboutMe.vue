@@ -1,7 +1,7 @@
 <template>
   <div class="about-me-container">
     <div class="about-me-title-container">
-        <div class="about-me-title">About me</div>
+        <div class="about-me-title"><a id="about-me">About me</a></div>
         <div class="line"/>
     </div>
     <div class="about-me-description">
@@ -16,7 +16,6 @@
 </template>
 
 <style lang="scss" scoped>
-
 @media only screen and (max-width: 600px) {
   .about-me-description {
     flex-wrap: wrap-reverse;

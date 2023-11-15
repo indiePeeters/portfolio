@@ -1,7 +1,7 @@
 <template>
   <div class="my-experience-container">
     <div class="my-experience-title-container">
-      <div class="my-experience-title">My experience</div>
+      <div class="my-experience-title"><a id="my-experience">My experience</a></div>
       <div class="line"/>
     </div>
 
@@ -106,6 +106,10 @@ export default defineComponent({
     width: 100% !important;
     display: flex;
     gap: 16px;
+  }
+
+  .experience-list {
+    width: 100%;
   }
 }
 

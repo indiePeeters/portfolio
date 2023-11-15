@@ -1,25 +1,23 @@
 <template>
-  <transition name="fade" :key="experienceIndex">
-    <div class="company-experience-container">
-      <div class="company-icon">
+  <div class="company-experience-container">
+    <div class="company-icon">
+        <img style="width: 40px; height: 40px" :src="imageSrc(companyLogo)" />
+      </div>
+    <div class="experience-container">
+      <div class="experience-header-container">
+        <div class="company-icon-mobile">
           <img style="width: 40px; height: 40px" :src="imageSrc(companyLogo)" />
         </div>
-      <div class="experience-container">
-        <div class="experience-header-container">
-          <div class="company-icon-mobile">
-            <img style="width: 40px; height: 40px" :src="imageSrc(companyLogo)" />
-          </div>
-          <div class="role-title-container">
-            <div class="role-title"> {{ roleTitle }}</div>
-            <div class="company-name"> {{ company }} </div>
-          </div>
-        </div>
-        <div class="role-description">
-            <span v-html="roleDescription"> </span>
+        <div class="role-title-container">
+          <div class="role-title"> {{ roleTitle }}</div>
+          <div class="company-name"> {{ company }} </div>
         </div>
       </div>
+      <div class="role-description">
+          <span v-html="roleDescription"> </span>
+      </div>
     </div>
-  </transition>
+  </div>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
@@ -51,6 +49,7 @@ export default defineComponent({
 
     .company-icon-mobile {
       display: inline  !important;
+      height: 40px !important;
     }
 
     .experience-header-container {
@@ -97,7 +96,12 @@ export default defineComponent({
   border-radius: 30px;
   justify-content: flex-start;
   align-items: center;
-  height: 52px;
+  padding: 9px;
+  gap: 5px;
+  img {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 .experience-container {
