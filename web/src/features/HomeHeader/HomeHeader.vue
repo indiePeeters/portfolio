@@ -5,7 +5,7 @@
         <span>Hi! I am Indie<span ref="typingJobTitle" class="typing-job-title"></span></span>
       </span>
       <div class="home-header-buttons">
-        <PrimaryButton buttonText="More about me" @click="logKaas()"/>
+        <PrimaryButton buttonText="More about me"/>
         <PrimaryButton buttonText="More about my projects"/>
       </div>
       <div class="home-header-text">I am a passionate software developer in love with everything related front-end development. Guided by a user-centric approach, I craft solutions that not only resonate but also leave a lasting impact on the end users' experiences.</div>
@@ -23,8 +23,6 @@ export default defineComponent({
   setup: () => {
     const skillsContainer = ref()
     const typingJobTitle = ref()
-    console.log(typingJobTitle)
-    console.log(skillsContainer)
 
     const textLoad = () => {
         setTimeout(() => {
@@ -47,9 +45,6 @@ export default defineComponent({
     setInterval(textLoad, 12000);
   },
   methods: {
-    logKaas () : void {
-      console.log('kaas')
-    }
   }
 })
 </script>

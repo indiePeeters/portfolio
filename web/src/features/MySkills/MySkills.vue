@@ -34,18 +34,18 @@ export default defineComponent({
       { name: "Vue", imageName: "vueLogo.png"},
       { name: "Graphql", imageName: "graphqlLogo.png"},
       { name: "Typescript", imageName: "typescriptLogo.png"},
-      { name: "Dotnet", imageName: "dotNetCoreLogo.png"},
-      { name: "Dotnet", imageName: "dotNetCoreLogo.png"},
-      { name: "Dotnet", imageName: "dotNetCoreLogo.png"},
-      { name: "Dotnet", imageName: "dotNetCoreLogo.png"},
-      { name: "Dotnet", imageName: "dotNetCoreLogo.png"},
-      { name: "Dotnet", imageName: "dotNetCoreLogo.png"},
-      { name: "Dotnet", imageName: "dotNetCoreLogo.png"},
-      { name: "Dotnet", imageName: "dotNetCoreLogo.png"},
-      { name: "Dotnet", imageName: "dotNetCoreLogo.png"},
-      { name: "Dotnet", imageName: "dotNetCoreLogo.png"},
-      { name: "Dotnet", imageName: "dotNetCoreLogo.png"},
-      { name: "Dotnet", imageName: "dotNetCoreLogo.png"}
+      { name: "Dotnet", imageName: "dotnetCoreLogo.png"},
+      { name: "Dotnet", imageName: "dotnetCoreLogo.png"},
+      { name: "Dotnet", imageName: "dotnetCoreLogo.png"},
+      { name: "Dotnet", imageName: "dotnetCoreLogo.png"},
+      { name: "Dotnet", imageName: "dotnetCoreLogo.png"},
+      { name: "Dotnet", imageName: "dotnetCoreLogo.png"},
+      { name: "Dotnet", imageName: "dotnetCoreLogo.png"},
+      { name: "Dotnet", imageName: "dotnetCoreLogo.png"},
+      { name: "Dotnet", imageName: "dotnetCoreLogo.png"},
+      { name: "Dotnet", imageName: "dotnetCoreLogo.png"},
+      { name: "Dotnet", imageName: "dotnetCoreLogo.png"},
+      { name: "Dotnet", imageName: "dotnetCoreLogo.png"}
     ]
 
     const autoScroll = () => {

@@ -50,7 +50,7 @@ export default defineComponent({
       },
       { 
         id:1,
-        companyLogo: 'opencircleSolutions.png',
+        companyLogo: 'opencirclesolutions.png',
         roleTitle: globalTranslations.value.experience.titles.openCircleTitle,
         company: globalTranslations.value.experience.companies.opencircle,
         roleDescription: globalTranslations.value.experience.descriptions.openCircleDescription,
