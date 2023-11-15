@@ -1,7 +1,7 @@
 <template>
     <div class="my-skills">
       <div class="title-container">
-        <div class="my-skills-title"><a id="my-skills"> My skills</a></div>
+        <div class="my-skills-title"><a id="my-skills">My skills</a></div>
         <div class="line"></div>
       </div>
       <div ref="skillsContainer" class="skills-container" @mouseenter="stopAutoScroll" @mouseleave="startAutoScroll">
