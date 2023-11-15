@@ -45,6 +45,9 @@ jobs:
           with:
             name: dist
             path: web/dist
+
+        - name: Copy CNAME File
+          run: cp CNAME web/dist/CNAME
   
         - name: Deploy to GitHub Pages
           uses: peaceiris/actions-gh-pages@v3
