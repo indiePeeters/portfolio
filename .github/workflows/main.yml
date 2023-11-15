@@ -1,23 +1,53 @@
-# This script deploys your website automatically
-name: CI
+name: Build and Deploy
 
-# Only trigger this script when you push to the master branch
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master  # Adjust the branch name as needed
 
-# Specify the tasks to run when this script gets triggered
 jobs:
   build:
     runs-on: ubuntu-latest
 
-    # Download our master branch
     steps:
-    - uses: actions/checkout@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-    # Run our deployment command
-    - name: Build web
-      run: cd web && npm run build
+      - name: Set Up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 16
 
-    - name: Deploy web
-      run: cp ./dist/* ../ && rm -rf dist
+      - name: Install Dependencies
+        run: npm install
+        working-directory: web
+
+      - name: Build Project
+        run: npm run build
+        working-directory: web
+
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: web/dist
+
+  deploy:
+      runs-on: ubuntu-latest
+      needs: build
+  
+      steps:
+        - name: Checkout Repository
+          uses: actions/checkout@v2
+  
+        - name: Download artifacts
+          uses: actions/download-artifact@v2
+          with:
+            name: dist
+            path: web/dist
+  
+        - name: Deploy to GitHub Pages
+          uses: peaceiris/actions-gh-pages@v3
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            publish_dir: web/dist 
