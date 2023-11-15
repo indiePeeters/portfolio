@@ -4,7 +4,7 @@
       <HomeHeader/>
       <MySkills/>
       <AboutMe/>
-      kaas
+      kaasa
       <MyExperience/>
       <MyProjects/>
       <RouterView />
