@@ -87,12 +87,11 @@ export default defineComponent({
     },
     startAutoScroll () {
       this.autoScrollEnabled = true;
-      this.autoScroll();
     },
     autoScroll() {
       if(this.skillsContainer && this.skillsContainer && this.autoScrollEnabled) {
-        this.skillsContainer.scrollBy(0, 2)
-        setTimeout(this.autoScroll, 50);
+        this.skillsContainer.scrollBy(0, 1.5)
+        setTimeout(this.autoScroll, 60);
       }
     }
   }

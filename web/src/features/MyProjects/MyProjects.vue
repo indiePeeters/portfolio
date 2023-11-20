@@ -4,10 +4,37 @@
         <div class="projects-title"><a id="my-projects">My projects</a></div>
         <div class="line"/>
     </div>
+    <div class="projects">
+      <img src="/assets/projects/partou/partou.png" @click="onProjectClicked('partou')"/>
+      <img src="/assets/projects/esac/esac.png" @click="onProjectClicked('skal')"/>
+      <img src="/assets/projects/esac/esac.png" @click="onProjectClicked('esac')"/>
+      <img src="/assets/projects/esac/esac.png"  @click="onProjectClicked('campervan')"/>
+    </div>
   </div>
 </template>
 
+<script lang="ts">
+import { ROUTES } from '@/router';
+import { defineComponent } from 'vue'
+export default defineComponent({
+  methods: {
+    onProjectClicked(projectName : string) : void {
+      this.$router.push({ name: ROUTES.project, params: { projectName } })
+    }
+  }
+}) 
+</script>
+
 <style lang="scss">
+
+.projects {
+  display: flex;
+  flex-direction: row;
+  flex-basis: calc(50% - 48px);
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
 .projects-container {
   width: 100%;
   height: 100%;

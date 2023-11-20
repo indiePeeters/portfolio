@@ -63,7 +63,7 @@ export default defineComponent({
         roleTitle: globalTranslations.value.experience.titles.whyellowTitle,
         company: globalTranslations.value.experience.companies.whyellow,
         roleDescription: globalTranslations.value.experience.descriptions.whyellowDescription,
-        startYear: 2019,
+        startYear: 2015,
         endYear: NaN
       },
     ]

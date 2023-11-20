@@ -5,7 +5,7 @@
       <div class="timeline-icon" :class="{large: currentExperienceIndex == 0}" @click="onCurrentExperienceIndexChanged(0)">
         <img src="/assets/mapcreator.png" />
       </div>
-      <div class="timeline-year" :class="{hidden: currentExperienceIndex !== 0}">2019</div>
+      <div class="timeline-year" :class="{hidden: currentExperienceIndex !== 0}">2015</div>
     </div>
     <div class="line"></div>
 
@@ -51,7 +51,7 @@ export default defineComponent({
   },
   methods: {
     onCurrentExperienceIndexChanged(currentExperienceIndex : number) {
-      this.toggleSlideShow()
+      this.stopSlideShow()
       this.currentExperienceIndex = currentExperienceIndex
       this.$emit('onCurrentExperienceIndexChanged', currentExperienceIndex)
     },
@@ -67,13 +67,8 @@ export default defineComponent({
       }
       }, 5000);
     },
-    toggleSlideShow() {
-      if (this.isSlideShowEnabled) {
-        clearInterval(this.intervalId);
-      } else {
-        this.startSlideShow();
-      }
-      this.isSlideShowEnabled = !this.isSlideShowEnabled;
+    stopSlideShow() {
+      this.isSlideShowEnabled = false
     },
   }
 })
