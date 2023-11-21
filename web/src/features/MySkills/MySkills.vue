@@ -34,13 +34,9 @@ export default defineComponent({
       { name: "Graphql", imageName: "graphqlLogo.png"},
       { name: "Typescript", imageName: "typescriptLogo.png"},
       { name: "Dotnet", imageName: "dotnetCoreLogo.png"},
-      { name: "Dotnet", imageName: "dotnetCoreLogo.png"},
-      { name: "Dotnet", imageName: "dotnetCoreLogo.png"},
-      { name: "Dotnet", imageName: "dotnetCoreLogo.png"},
-      { name: "Dotnet", imageName: "dotnetCoreLogo.png"},
-      { name: "Dotnet", imageName: "dotnetCoreLogo.png"},
-      { name: "Dotnet", imageName: "dotnetCoreLogo.png"},
-      { name: "Dotnet", imageName: "dotnetCoreLogo.png"}
+      { name: "Php", imageName: "php.png"},
+      { name: "Python", imageName: "python.png"},
+      { name: "Figma", imageName: "figma.png"}
     ]).value
 
     const originalSkillsLength = skills.length

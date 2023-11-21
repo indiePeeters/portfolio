@@ -35,7 +35,7 @@ export default defineComponent({
   },
   methods: {
     imageSrc(imageName : string) : string {
-      const path = new URL(`/assets`, import.meta.url)
+      const path = new URL(`/assets/companies`, import.meta.url)
       return `${path}/${imageName}`;
     }
   }

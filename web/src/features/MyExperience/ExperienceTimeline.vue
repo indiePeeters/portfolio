@@ -3,7 +3,7 @@
     <div class="timeline-item">
       <div class="hidden timeline-year">0000</div>
       <div class="timeline-icon" :class="{large: currentExperienceIndex == 0}" @click="onCurrentExperienceIndexChanged(0)">
-        <img src="/assets/mapcreator.png" />
+        <img src="/assets/companies/mapcreator.png" />
       </div>
       <div class="timeline-year" :class="{hidden: currentExperienceIndex !== 0}">2015</div>
     </div>
@@ -12,7 +12,7 @@
     <div class="timeline-item">
       <div class="hidden timeline-year">0000</div>
       <div class="timeline-icon" :class="{large: currentExperienceIndex == 1}" @click="onCurrentExperienceIndexChanged(1)">
-        <img src="/assets/opencirclesolutions.png" />
+        <img src="/assets/companies/opencirclesolutions.png" />
       </div>
       <div class="timeline-year" :class="{hidden: currentExperienceIndex !== 1}">2019</div>
     </div>
@@ -21,7 +21,7 @@
     <div class="timeline-item">
       <div class="hidden timeline-year">0000</div>
       <div class="timeline-icon" :class="{large: currentExperienceIndex == 2}" @click="onCurrentExperienceIndexChanged(2)">
-        <img src="/assets/whyellow.png" />
+        <img src="/assets/companies/whyellow.png" />
       </div>
       <div class="timeline-year" :class="{hidden: currentExperienceIndex !== 2}">2019</div>
     </div>
@@ -88,8 +88,6 @@ export default defineComponent({
   align-self: stretch;
   width:100%;
   height: 100px;
-  padding-left: 32px;
-  padding-right: 32px;
   justify-content: flex-start;
   align-items: center;
   gap: 16px;

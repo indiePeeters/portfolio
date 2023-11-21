@@ -33,6 +33,9 @@ export default defineComponent({
   flex-basis: calc(50% - 48px);
   gap: 48px;
   flex-wrap: wrap;
+  img {
+    width: 326px;
+  }
 }
 
 .projects-container {

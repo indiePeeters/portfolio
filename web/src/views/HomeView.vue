@@ -15,11 +15,10 @@ import MySkills from '@/features/MySkills/MySkills.vue'
 import AboutMe from '@/features/AboutMe/AboutMe.vue'
 import MyExperience from '@/features/MyExperience/MyExperience.vue'
 import HomeHeader from '@/features/HomeHeader/HomeHeader.vue'
-import MyProjects from '@/features/MyProjects/MyProjects.vue';
+import MyProjects from '@/features/Projects/MyProjects.vue';
 </script>
 
 <style lang="scss">
-
 @media only screen and (max-width: 600px) {
   .content {
     padding-left: 16px;
