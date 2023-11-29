@@ -25,7 +25,14 @@ export default defineComponent({
 }) 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+@media only screen and (max-width: 600px) {
+  .projects {
+    img {
+      width: calc(100vw - 16px);
+    }
+  }
+}
 
 .projects {
   display: flex;

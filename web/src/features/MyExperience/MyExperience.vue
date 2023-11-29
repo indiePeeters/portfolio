@@ -6,21 +6,29 @@
     </div>
 
     <div class="experience-list">
-      <ExperienceItem
-        v-for="experience in experiences"
-        v-show="experience.id === selectedExperience.id"
-        :class="{'visible': experience.id === selectedExperience.id}"
-        :key="experience.id"
-        :experienceIndex="experience.id"
-        :roleTitle="selectedExperience.roleTitle"
-        :roleDescription="selectedExperience.roleDescription"
-        :company="selectedExperience.company"
-        :companyLogo="selectedExperience.companyLogo"
-        :startYear="selectedExperience.startYear"
-        :endYear="selectedExperience.endYear"
-      />
+      <v-carousel
+        class="carousel"
+        v-model="currentExperienceIndex"
+        :touch="true"
+        :cycle="isCycleEnabled"
+        :continues="true"
+        :hide-delimiters="true"
+        :show-arrows="false"
+        @touch="">
+        <v-carousel-item  v-for="experience in experiences">
+          <ExperienceItem
+            :key="experience.id"
+            :experienceIndex="experience.id"
+            :roleTitle="experience.roleTitle"
+            :roleDescription="experience.roleDescription"
+            :company="experience.company"
+            :companyLogo="experience.companyLogo"
+            :startYear="experience.startYear"
+            :endYear="experience.endYear"/>
+        </v-carousel-item> 
+      </v-carousel>
     </div>
-    <ExperienceTimeline @onCurrentExperienceIndexChanged="setCurrentItemIndex"/>
+    <ExperienceTimeline :currentExperienceIndex="currentExperienceIndex" @onCurrentExperienceIndexChanged="setCurrentItemIndex"/>
   </div>
 </template>
 
@@ -74,6 +82,11 @@ export default defineComponent({
       show
     }
   },
+  data() {
+    return {
+      isCycleEnabled: true
+    };
+  },
   computed: {
     globalTranslations() {
       return globalTranslations
@@ -85,16 +98,28 @@ export default defineComponent({
   methods: {
     setCurrentItemIndex(currentItemIndex: number) {
       this.currentExperienceIndex = currentItemIndex
+      this.isCycleEnabled = false
+    },
+    disableCycle() {
+      this.isCycleEnabled = false
     }
   }
 })
 </script>
 
 <style lang="scss" scoped>
+.carousel {
+  height: fit-content !important;
+  min-height: 320px !important;
+}
 
 @media only screen and (max-width: 600px) {
   .company-icon {
     display: none !important;
+  }
+
+ .carousel {
+    min-height: 440px !important;
   }
 
   .company-icon-mobile {
@@ -147,20 +172,5 @@ export default defineComponent({
   word-wrap: break-word;
 }
 
-
-.experience-list {
-  display: flex;
-  flex-direction: column;
-  transition: 0.6s all ease;
-}
-
-.experience-list .visible {
-  opacity: 1;
-  transition: opacity 1s;
-}
-
-.experience-list .visible + .visible {
-  transition-delay: 1s;
-}
 
 </style>

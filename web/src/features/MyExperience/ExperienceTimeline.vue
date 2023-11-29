@@ -29,11 +29,21 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref, watch } from 'vue'
 
 export default defineComponent({
-  setup() {
-    var currentExperienceIndex = ref(0)
+  props: {
+    currentExperienceIndex: { type: Number },
+  },
+  setup(props) {
+    const currentExperienceIndex = ref(props.currentExperienceIndex || 0);
+    watch(
+      () => props.currentExperienceIndex,
+      (newValue) => {
+        currentExperienceIndex.value = newValue ?? 0;
+      },
+      { immediate: true }
+    );
     return {
       currentExperienceIndex,
       maxExperienceIndex: 2,
@@ -41,9 +51,16 @@ export default defineComponent({
       intervalId: 0
     }
   },
-  mounted() {
-    this.startSlideShow()
-  },
+  // watch: {
+  //   currentExperienceIndex: {
+  //     handler(newValue) {
+  //       debugger
+  //       this.currentExperienceIndex = newValue;
+  //     },
+  //     deep: true,
+  //     immediate:true,
+  //   }
+  // },
   emits: {
     onCurrentExperienceIndexChanged(currentExperienceIndex : number) {
       return currentExperienceIndex
@@ -51,25 +68,9 @@ export default defineComponent({
   },
   methods: {
     onCurrentExperienceIndexChanged(currentExperienceIndex : number) {
-      this.stopSlideShow()
       this.currentExperienceIndex = currentExperienceIndex
       this.$emit('onCurrentExperienceIndexChanged', currentExperienceIndex)
-    },
-    startSlideShow() {
-      this.intervalId = setInterval(() => {
-        if (this.isSlideShowEnabled) {
-          this.currentExperienceIndex++;
-          this.$emit('onCurrentExperienceIndexChanged', this.currentExperienceIndex)
-          if (this.currentExperienceIndex > this.maxExperienceIndex) {
-            this.currentExperienceIndex = 0;
-            this.$emit('onCurrentExperienceIndexChanged', this.currentExperienceIndex)
-          }
-      }
-      }, 5000);
-    },
-    stopSlideShow() {
-      this.isSlideShowEnabled = false
-    },
+    }
   }
 })
 

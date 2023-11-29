@@ -49,7 +49,7 @@ export default defineComponent({
 
     .company-icon-mobile {
       display: inline  !important;
-      height: 40px !important;
+      height: 58px !important;
     }
 
     .experience-header-container {

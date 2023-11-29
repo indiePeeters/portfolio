@@ -21,8 +21,8 @@ import MyProjects from '@/features/Projects/MyProjects.vue';
 <style lang="scss">
 @media only screen and (max-width: 600px) {
   .content {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 8px;
+    padding-right: 8px;
     width: calc(100% - 32px) !important
   }
 }
