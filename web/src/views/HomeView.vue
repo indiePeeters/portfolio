@@ -1,12 +1,12 @@
 <template>
   <main>
-    <div class="content">
-      <HomeHeader/>
-      <MySkills/>
-      <AboutMe/>
-      <MyExperience/>
-      <MyProjects/>
-    </div>
+      <div class="content">
+        <HomeHeader/>
+        <MySkills/>
+        <AboutMe/>
+        <MyExperience/>
+        <MyProjects/>
+      </div>
   </main>
 </template>
 
@@ -18,7 +18,7 @@ import HomeHeader from '@/features/HomeHeader/HomeHeader.vue'
 import MyProjects from '@/features/Projects/MyProjects.vue';
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @media only screen and (max-width: 600px) {
   .content {
     padding-left: 8px;
@@ -28,6 +28,8 @@ import MyProjects from '@/features/Projects/MyProjects.vue';
 }
 
 .content {
+  margin-top: 32px;
+  margin-bottom: 32px;
   margin-left: auto;
   margin-right: auto;
   display: flex;

@@ -1,7 +1,7 @@
 <template>
   <div class="my-experience-container">
     <div class="my-experience-title-container">
-      <div class="my-experience-title"><a id="my-experience">My experience</a></div>
+      <div class="my-experience-title"><span id="my-experience">My experience</span></div>
       <div class="line"/>
     </div>
 

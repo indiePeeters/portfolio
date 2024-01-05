@@ -4,23 +4,26 @@
       <PartouProject/>
     </template>
     <template v-if="projectName === 'skal'">
-      kaas
+      <SkalProject/>
+    </template>
+    <template v-if="projectName === 'augmented reality'">
+      Under development!
     </template>
     <template v-if="projectName === 'esac'">
-      kaas
-    </template>
-    <template v-if="projectName === 'campervan'">
-      kaas
+      Under development!
     </template>
   </div>
 </template>
 
 <script lang="ts">
 import PartouProject from '@/features/Projects/PartouProject.vue'
+import SkalProject from '@/features/Projects/SkalProject.vue'
+
 import { defineComponent } from 'vue'
 export default defineComponent({
   components:{
-    PartouProject
+    PartouProject,
+    SkalProject
   },
   props: {
     projectName: String
@@ -30,11 +33,11 @@ export default defineComponent({
 }) 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @media only screen and (max-width: 600px) {
   .content {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 8px;
+    padding-right: 8px;
     width: calc(100% - 32px) !important
   }
 }

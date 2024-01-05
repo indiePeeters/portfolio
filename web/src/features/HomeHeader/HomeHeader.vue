@@ -142,7 +142,7 @@ export default defineComponent({
       ", an App\A developer": (
           color: #FFFFFF
       ),
-      ", an UX\A designer": (
+      ", a UX\A designer": (
         color: #FFFFFF
       )
     ),

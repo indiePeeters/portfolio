@@ -1,14 +1,13 @@
 <template>
   <div class="projects-container">
     <div class="projects-title-container">
-        <div class="projects-title"><a id="my-projects">My projects</a></div>
+        <div class="projects-title"><span id="my-projects">My projects</span></div>
         <div class="line"/>
     </div>
+    <p>My journey in web development has been shaped by a variety of projects, each presenting unique challenges and opportunities. From developing intuitive frontends to creating robust backend systems </p>
     <div class="projects">
       <img src="/assets/projects/partou/partou.png" @click="onProjectClicked('partou')"/>
-      <img src="/assets/projects/esac/esac.png" @click="onProjectClicked('skal')"/>
-      <img src="/assets/projects/esac/esac.png" @click="onProjectClicked('esac')"/>
-      <img src="/assets/projects/esac/esac.png"  @click="onProjectClicked('campervan')"/>
+      <img src="/assets/projects/skal/skal.png" @click="onProjectClicked('skal')"/>
     </div>
   </div>
 </template>
@@ -29,7 +28,7 @@ export default defineComponent({
 @media only screen and (max-width: 600px) {
   .projects {
     img {
-      width: calc(100vw - 16px);
+      width: calc(100vw - 48px) !important; 
     }
   }
 }

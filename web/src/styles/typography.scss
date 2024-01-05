@@ -1,3 +1,5 @@
+@import '@/styles/colors.scss';
+
 body {
     color: #FFFCF9;
     font-size: 16px;
@@ -5,4 +7,32 @@ body {
     font-weight: 400;
     word-wrap: break-word;
     line-height: 1.2;
+}
+
+h1 {
+    color: #FFFCF9;
+    font-size: 34px;
+    font-family: Roboto;
+    font-weight: 500;
+    word-wrap: break-word;
+}
+
+h2 {
+    color: #FFFCF9;
+    font-size: 24px;
+    font-family: Roboto;
+    font-weight: 500;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;   
+}
+
+a {
+    color: $primary;
+    text-decoration: none;
+}
+
+a:hover {
+    color: $primary-light;
+    text-decoration: none;
 }
