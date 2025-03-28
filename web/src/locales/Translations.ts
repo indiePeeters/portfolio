@@ -3,17 +3,17 @@ export interface Translations {
     titles: {
       mapcreatorTitle: string,
       openCircleTitle: string,
-      whyellowTitle: string,
+      beyonderTitle: string,
     },
     companies: {
-      whyellow: string,
+      beyonder: string,
       mapcreator: string,
       opencircle: string
     },
     descriptions: {
       mapcreatorDescription: string,
       openCircleDescription: string,
-      whyellowDescription: string,
+      beyonderDescription: string,
     }
   }
 }

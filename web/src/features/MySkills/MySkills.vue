@@ -1,12 +1,13 @@
 <template>
-    <div class="my-skills">
+    <div class="my-skills" :key="componentKey">
       <div class="title-container">
         <div class="my-skills-title"><span id="my-skills">My skills</span></div>
         <div class="line"></div>
       </div>
+      
       <div ref="skillsContainer" class="skills-container" @mouseenter="stopAutoScroll" @mouseleave="startAutoScroll">
         <div class="card-item" :key="skill.name" v-for="skill in skills">
-            <SkillCard :title="skill.name" :imageName="skill.imageName" />
+            <SkillCard :title="skill.name" :imageUrl="skill.imageUrl" />
         </div>
       </div>
     </div>
@@ -16,11 +17,6 @@
 import SkillCard from '@/features/MySkills/SkillCard.vue'
 import { defineComponent, onMounted, ref } from 'vue'
 
-type Skill = {
-  imageName: string
-  name: string
-}
-
 export default defineComponent({
   components: {
     SkillCard
@@ -28,25 +24,28 @@ export default defineComponent({
   setup() {
     let autoScrollEnabled = true
     const skillsContainer = ref<HTMLDivElement>().value ?? undefined 
-    const skills = ref<Skill[]>([
-      { name: "React", imageName: "reactLogo.png"},
-      { name: "Vue", imageName: "vueLogo.png"},
-      { name: "Graphql", imageName: "graphqlLogo.png"},
-      { name: "Typescript", imageName: "typescriptLogo.png"},
-      { name: "Dotnet", imageName: "dotnetCoreLogo.png"},
-      { name: "Php", imageName: "php.png"},
-      { name: "Python", imageName: "python.png"},
-      { name: "Figma", imageName: "figma.png"}
-    ]).value
-
-    const originalSkillsLength = skills.length
 
     return {
-      originalSkillsLength,
       autoScrollEnabled,
       skillsContainer,
-      skills,
       onMounted
+    }
+  },
+  data() {
+    const skills = [
+        { name: "React", imageUrl: "/assets/skills/reactLogo.png"},
+        { name: "Vue", imageUrl: "/assets/skills/vueLogo.png"},
+        { name: "Graphql", imageUrl: "/assets/skills/graphqlLogo.png"},
+        { name: "Typescript", imageUrl: "/assets/skills/typescriptLogo.png"},
+        { name: "Dotnet", imageUrl: "/assets/skills/dotnetCoreLogo.png"},
+        { name: "Php", imageUrl: "/assets/skills/php.png"},
+        { name: "Python", imageUrl: "/assets/skills/python.png"},
+        { name: "Figma", imageUrl: "/assets/skills/figma.png"}
+      ]
+    return { 
+      skills,
+      originalSkillsLength: skills.length,
+      componentKey: 0
     }
   },
   mounted() {
@@ -60,7 +59,14 @@ export default defineComponent({
         this.autoScrollEnabled = true
         this.autoScroll()
       })
-    
+
+      const addItemsToSkills = () => {
+        for (let i = 0; i < this.originalSkillsLength; i++) {
+          this.skills = [...this.skills, ...this.skills.slice(0, this.originalSkillsLength)];
+        }
+      }
+      addItemsToSkills()
+
       this.skillsContainer.addEventListener('scroll', () => {
         // Check if the scroll bar has reached the bottom
         if(this.skillsContainer) {
@@ -68,11 +74,9 @@ export default defineComponent({
             this.skillsContainer.scrollTop + this.skillsContainer.clientHeight >=
             this.skillsContainer.scrollHeight;
 
-          if (isAtBottom && this.autoScrollEnabled) {
-            for (let i = 0; i < this.originalSkillsLength; i++) {
-              this.skills.push({ name: this.skills[i].name, imageName: this.skills[i].imageName });
+            if (isAtBottom) {
+              addItemsToSkills()
             }
-          }
         }
       })
     }
@@ -133,13 +137,13 @@ export default defineComponent({
   overflow-y: scroll;
   max-height: 400px;
   padding-bottom: 8px;
-  overflow: hidden !important;
 }
 .skills-container::-webkit-scrollbar-thumb {
   background: #00A396; 
   border-radius: 10px;
 }
 .skills-container::-webkit-scrollbar {
+  display: none;
   scrollbar-width: 20px;
   width: 4px;
 

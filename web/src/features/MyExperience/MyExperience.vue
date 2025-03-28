@@ -6,18 +6,8 @@
     </div>
 
     <div class="experience-list">
-      <v-carousel
-        class="carousel"
-        v-model="currentExperienceIndex"
-        :touch="true"
-        :cycle="isCycleEnabled"
-        :continues="true"
-        :hide-delimiters="true"
-        :show-arrows="false"
-        @touch="">
-        <v-carousel-item  v-for="experience in experiences">
+        <template v-for="experience in reverserdExperiences">
           <ExperienceItem
-            :key="experience.id"
             :experienceIndex="experience.id"
             :roleTitle="experience.roleTitle"
             :roleDescription="experience.roleDescription"
@@ -25,10 +15,8 @@
             :companyLogo="experience.companyLogo"
             :startYear="experience.startYear"
             :endYear="experience.endYear"/>
-        </v-carousel-item> 
-      </v-carousel>
+        </template> 
     </div>
-    <ExperienceTimeline :currentExperienceIndex="currentExperienceIndex" @onCurrentExperienceIndexChanged="setCurrentItemIndex"/>
   </div>
 </template>
 
@@ -49,30 +37,30 @@ export default defineComponent({
     const experiences = [
       { 
         id:0, 
-        companyLogo: 'mapcreator.png',
+        companyLogo: '/assets/companies/mapcreator.png',
         roleTitle: globalTranslations.value.experience.titles.mapcreatorTitle,
         company: globalTranslations.value.experience.companies.mapcreator,
         roleDescription: globalTranslations.value.experience.descriptions.mapcreatorDescription,
-        startYear: 2019,
-        endYear: NaN
+        startYear: 2015,
+        endYear: 2018
       },
       { 
         id:1,
-        companyLogo: 'opencirclesolutions.png',
+        companyLogo: '/assets/companies/opencirclesolutions.png',
         roleTitle: globalTranslations.value.experience.titles.openCircleTitle,
         company: globalTranslations.value.experience.companies.opencircle,
         roleDescription: globalTranslations.value.experience.descriptions.openCircleDescription,
         startYear: 2019,
-        endYear: NaN
+        endYear: 2019
       },
       { 
         id:2,
-        companyLogo: 'whyellow.png',
-        roleTitle: globalTranslations.value.experience.titles.whyellowTitle,
-        company: globalTranslations.value.experience.companies.whyellow,
-        roleDescription: globalTranslations.value.experience.descriptions.whyellowDescription,
-        startYear: 2015,
-        endYear: NaN
+        companyLogo: '/assets/companies/beyonder.png',
+        roleTitle: globalTranslations.value.experience.titles.beyonderTitle,
+        company: globalTranslations.value.experience.companies.beyonder,
+        roleDescription: globalTranslations.value.experience.descriptions.beyonderDescription,
+        startYear: 2019,
+        endYear: 2024
       },
     ]
 
@@ -93,6 +81,9 @@ export default defineComponent({
     },
     selectedExperience() {
       return this.experiences[this.currentExperienceIndex]
+    },
+    reverserdExperiences() {
+      return this.experiences.reverse()
     }
   },
   methods: {
@@ -134,11 +125,11 @@ export default defineComponent({
   }
 
   .experience-list {
+    display: flex;
+    gap: 48px !important;
     width: 100%;
   }
 }
-
-
 
 .line {
   flex: 1 1 0; height: 0px; border: 1px #00A396 solid;
@@ -172,5 +163,11 @@ export default defineComponent({
   word-wrap: break-word;
 }
 
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+}
 
 </style>

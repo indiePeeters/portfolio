@@ -1,27 +1,34 @@
 <template>
   <div class="content">
     <template v-if="projectName === 'partou'">
+      
       <PartouProject/>
     </template>
     <template v-if="projectName === 'skal'">
       <SkalProject/>
     </template>
+    <template v-if="projectName === 'lord of the rings audiobook'">
+      <LotrAudiobook/>
+    </template>
     <template v-if="projectName === 'augmented reality'">
       Under development!
     </template>
-    <template v-if="projectName === 'esac'">
+    <template>
+      {{ projectName }}
       Under development!
     </template>
   </div>
 </template>
 
 <script lang="ts">
+import LotrAudiobook from '@/features/Projects/LotrAudiobook.vue'
 import PartouProject from '@/features/Projects/PartouProject.vue'
 import SkalProject from '@/features/Projects/SkalProject.vue'
 
 import { defineComponent } from 'vue'
 export default defineComponent({
   components:{
+    LotrAudiobook,
     PartouProject,
     SkalProject
   },

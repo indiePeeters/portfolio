@@ -34,7 +34,7 @@ import MyProjects from '@/features/Projects/MyProjects.vue';
   margin-right: auto;
   display: flex;
   flex-direction: column;
-  row-gap: 40px;
+  row-gap: 60px;
   max-width: 700px;
   width: 100%;
 }

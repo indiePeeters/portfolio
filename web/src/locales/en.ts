@@ -3,10 +3,10 @@ export default {
     titles: {
       mapcreatorTitle: 'Support & development',
       openCircleTitle: 'Intership Augmented Reality',
-      whyellowTitle: 'Software developer (current)',
+      beyonderTitle: 'Software developer',
     },
     companies: {
-      whyellow: 'Whyellow',
+      beyonder: 'Beyonder',
       mapcreator: 'Mapcreator',
       opencircle: 'Open Circle Solutions'
     },
@@ -26,8 +26,8 @@ export default {
         Throughout the course of this project, I gained an understanding of the processes involved in the creation of augmented reality applications. 
         Additionally, I conducted research on various design and implementation strategies for augmented reality within cross-platform app environments.<br /><br />
         For more in-depth information regarding this project, please proceed to the following sections.`,
-      whyellowDescription: `
-        During my time at Whyellow, I worked with a dedicated team on two big projects. 
+      beyonderDescription: `
+        During my time at Beyonder, I worked with a dedicated team on two big projects. 
         I was one of the few team members who loved frontend development, so I ended up handling the frontend work for both projects.<br /><br />
         
         One of these projects was a web system for Partou, which I\'ll talk about more <a href="/projects/partou">here</a>. 

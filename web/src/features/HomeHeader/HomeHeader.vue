@@ -9,6 +9,10 @@
         <a class="no-underline" @click="scrollIntoView('my-projects')"><PrimaryButton buttonText="More about my projects"/></a>
       </div>
       <div class="home-header-text">I am a passionate software developer in love with everything related front-end development. Guided by a user-centric approach, I craft solutions that not only resonate but also leave a lasting impact on the end users' experiences.</div>
+      <div class="social-icons">
+        <a @click="onLinkedinClicked"><font-awesome-icon class='social-icon' :icon="['fab', 'linkedin']" /></a>
+        <a @click="onGithubClicked"><font-awesome-icon class='social-icon' :icon="['fab', 'github']" /></a>
+      </div>
     </div>
   </div>
 </template>
@@ -54,6 +58,12 @@ export default defineComponent({
           behavior: 'smooth',
         });
       }
+    },
+    onLinkedinClicked () {
+      window.open('https://www.linkedin.com/in/indie-peeters', '_blank');
+    },
+    onGithubClicked () {
+      window.open('https://github.com/indiePeeters', '_blank');
     }
   }
 })
@@ -87,7 +97,6 @@ export default defineComponent({
 
   .home-header-content {
     width: 100% !important;
-    margin-bottom: 0px !important;
   }
 
   .home-header-content {
@@ -103,7 +112,6 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
   gap: 32px;
-  margin-bottom: 32px;
   margin-top: 182px;
 }
 .home-header-title {
@@ -130,6 +138,20 @@ export default defineComponent({
   top: -50px;
   margin-left:380px;
 
+}
+
+.social-icons {
+  padding-left: 16px;
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  .social-icon {
+    font-size: 30px;
+    color: white;
+  }
+  .social-icon:hover {
+    color: rgb(235, 213, 213);
+  }
 }
 
 .typing-job-title {

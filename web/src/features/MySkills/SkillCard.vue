@@ -1,7 +1,7 @@
 <template>
     <div class="card">
       <div class="center">
-        <img class="skill-logo" :src="imageSrc" />
+        <img class="skill-logo" :src="imageUrl" />
       </div>
       <div class="skill-title">{{title}}</div>
     </div>
@@ -12,16 +12,7 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   props: {
     title: String,
-    imageName: String
-  }, 
-  computed: {
-    imageSrc() {
-      const path = new URL(`/assets/skills`, import.meta.url)
-      return `${path}/${this.imageName}`;
-    }
-  },
-  methods: {
-
+    imageUrl: String
   }
 }) 
 </script>

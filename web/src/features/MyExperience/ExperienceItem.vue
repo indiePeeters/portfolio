@@ -1,16 +1,18 @@
 <template>
   <div class="company-experience-container">
     <div class="company-icon">
-        <img style="width: 40px; height: 40px" :src="imageSrc(companyLogo)" />
+        <img style="width: 40px; height: 40px" :src="companyLogo" />
       </div>
     <div class="experience-container">
       <div class="experience-header-container">
         <div class="company-icon-mobile">
-          <img style="width: 40px; height: 40px" :src="imageSrc(companyLogo)" />
+          <img style="width: 40px; height: 40px" :src="companyLogo" />
         </div>
         <div class="role-title-container">
           <div class="role-title"> {{ roleTitle }}</div>
           <div class="company-name"> {{ company }} </div>
+          <div class="duration"> {{ startYear }} - {{ endYear }} </div>
+
         </div>
       </div>
       <div class="role-description">
@@ -32,12 +34,6 @@ export default defineComponent({
     endYear: { type: Number },
   },
   setup() {
-  },
-  methods: {
-    imageSrc(imageName : string) : string {
-      const path = new URL(`/assets/companies`, import.meta.url)
-      return `${path}/${imageName}`;
-    }
   }
 })
 </script>
@@ -48,6 +44,7 @@ export default defineComponent({
     }
 
     .company-icon-mobile {
+      margin-top: 10px;
       display: inline  !important;
       height: 58px !important;
     }
@@ -80,6 +77,7 @@ export default defineComponent({
 }
 
 .company-icon {
+  margin-top: 10px;
   padding: 9px;
   background: white;
   border-radius: 30px;
@@ -143,5 +141,9 @@ export default defineComponent({
 }
 .fade-enter, .fade-leave-to {
   opacity: 0;
+}
+
+.duration {
+  font-size: 12px;
 }
 </style>

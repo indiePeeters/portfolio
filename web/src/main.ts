@@ -8,13 +8,19 @@ import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 const vuetify = createVuetify({
     components,
-    directives,
+    directives
   })
 
+library.add(faLinkedin, faGithub);
+
 const app = createApp(App)
+  .component('font-awesome-icon', FontAwesomeIcon)
   .use(router)
   .use(vuetify)
   .use(i18n)

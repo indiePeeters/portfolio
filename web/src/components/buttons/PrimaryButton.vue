@@ -9,11 +9,10 @@ export default defineComponent({
     buttonText: String
   },
   emits: ['click'],
-  setup(props, { emit }) {
-    emit('click')
-  },
   methods: {
-    onButtonClicked: () => { }
+    onButtonClicked() { 
+      this.$emit('click')
+    }
   }
   
 }) 

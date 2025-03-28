@@ -21,7 +21,7 @@
     <div class="timeline-item">
       <div class="hidden timeline-year">0000</div>
       <div class="timeline-icon" :class="{large: currentExperienceIndex == 2}" @click="onCurrentExperienceIndexChanged(2)">
-        <img src="/assets/companies/whyellow.png" />
+        <img src="/assets/companies/beyonder.png" />
       </div>
       <div class="timeline-year" :class="{hidden: currentExperienceIndex !== 2}">2019</div>
     </div>
@@ -51,16 +51,6 @@ export default defineComponent({
       intervalId: 0
     }
   },
-  // watch: {
-  //   currentExperienceIndex: {
-  //     handler(newValue) {
-  //       debugger
-  //       this.currentExperienceIndex = newValue;
-  //     },
-  //     deep: true,
-  //     immediate:true,
-  //   }
-  // },
   emits: {
     onCurrentExperienceIndexChanged(currentExperienceIndex : number) {
       return currentExperienceIndex

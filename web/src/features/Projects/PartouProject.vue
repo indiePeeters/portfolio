@@ -4,7 +4,24 @@
       <img src="/assets/projects/partou/logo.png"/>
       <div class="project-title">Revolutionizing Childcare: A Journey of Innovation to Empower Parents</div>
     </div>
-    <p>Partou is a well-respected childcare organization in the Netherlands, currently a leader in the market. They've grown a lot, now having over 900 locations across the country and providing daycare for more than 80 thousand children. During my time at Whyellow, I had the chance to be a part of this big project.</p>
+    <p>Partou is a well-respected childcare organization in the Netherlands, currently a leader in the market. They've grown a lot, now having over 900 locations across the country and providing daycare for more than 80 thousand children. During my time at Beyonder, I had the chance to be a part of this big project.</p>
+    <div class="project-techniques">
+      <div class="project-technique">
+        <v-img src="/assets/skills/vueLogo.png" title="Vue"/>
+      </div>
+      <div class="project-technique">
+        <v-img src="/assets/skills/graphqlLogo.png" title="Graphql"/>
+      </div>
+      <div class="project-technique">
+        <v-img src="/assets/skills/typescriptLogo.png" title="Typescript"/>
+      </div>
+      <div class="project-technique">
+        <v-img src="/assets/skills/dotnetCoreLogo.png" title=".NET"/>
+      </div>
+      <div class="project-technique">
+        <v-img src="/assets/skills/figma.png" title="Figma"/>
+      </div>
+    </div>
     <div class="project-sub-content">
       <div>
         <h2>The case</h2>
@@ -170,5 +187,15 @@ export default defineComponent({
   flex: 1 1 0;
   height: 0px;
   border: 1px #00A396 solid
+}
+
+.project-techniques {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 12px;
+  .project-technique {
+    width: 30px;
+  }
 }
 </style>
