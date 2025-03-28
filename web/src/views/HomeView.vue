@@ -6,6 +6,7 @@
         <AboutMe/>
         <MyExperience/>
         <MyProjects/>
+        <MyCertificates/>
       </div>
   </main>
 </template>
@@ -16,6 +17,7 @@ import AboutMe from '@/features/AboutMe/AboutMe.vue'
 import MyExperience from '@/features/MyExperience/MyExperience.vue'
 import HomeHeader from '@/features/HomeHeader/HomeHeader.vue'
 import MyProjects from '@/features/Projects/MyProjects.vue';
+import MyCertificates from '@/features/MyCertificates/MyCertificates.vue'
 </script>
 
 <style lang="scss" scoped>
