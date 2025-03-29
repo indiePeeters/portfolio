@@ -108,7 +108,7 @@ export default defineComponent({
   }
 
   .card-item {
-    width: calc(100%/2 - 20px)
+    width: calc(100% / 2 - 14px)
   }
 }
 

@@ -124,7 +124,7 @@ export default defineComponent({
       width: 100% !important;
       img {
         height: 163px;
-        width: 326px;
+        width: 100% !important;
       }
     }
   }

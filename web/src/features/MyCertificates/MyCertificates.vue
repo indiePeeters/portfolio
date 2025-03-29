@@ -5,7 +5,7 @@
         <div class="line"></div>
       </div>
       
-      <div>
+      <div class="my-certificates-cards">
         <div class="card" v-for="certificate in certificates">
           <img :src="certificate.imageUrl"/>
           <div>
@@ -41,10 +41,10 @@ export default defineComponent({
   },
   methods: {
     onDownloadClicked(filename : string) {
-      console.log(this.$refs.downloadLink); // Check the value
       const filePath = `/assets/certificates/${filename}`;
 
-      const AnchorElement = (this.$refs.downloadLink[0] as HTMLAnchorElement)
+      const element = this.$refs.downloadLink as HTMLAnchorElement[]
+      const AnchorElement = (element[0] as HTMLAnchorElement)
       AnchorElement.href = filePath;
       AnchorElement.setAttribute('download', filename);
       AnchorElement.click();
@@ -60,10 +60,6 @@ export default defineComponent({
     width: 100% !important;
     max-height: 332px !important;
     margin-left: 0px !important;
-  }
-
-  .card-item {
-    width: calc(100%/2 - 20px)
   }
 }
 
@@ -90,7 +86,14 @@ export default defineComponent({
   font-weight: 500;
   word-wrap: break-word;
 }
-  
+
+.my-certificates-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
 .line {
   flex: 1 1 0;
   height: 0px;
@@ -99,7 +102,7 @@ export default defineComponent({
 
 
 .card {
-  width: 184px;
+  width: calc(100% / 2 - 14px);
   background: #3F3B68;
   box-shadow: 2px 3px 4px 2px rgba(0, 0, 0, 0.25);
   border-radius: 30px;
