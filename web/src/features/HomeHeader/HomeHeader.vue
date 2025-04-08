@@ -82,6 +82,26 @@ export default defineComponent({
   .home-header-content {
     margin-top: 0px !important;
   }
+
+  .home-header-title-cover {
+    display: flex;
+    justify-content: center;
+    flex-direction: column-reverse !important;
+    align-items: center;
+    gap: 20px !important; 
+    height: 100% !important;
+
+    .home-header-title {
+      min-width: 350px  ;
+    }
+    .home-header-cover {
+      border-radius: 150px;
+      height: 250px !important;
+      width: 250px !important;
+      top: 0px !important;
+      position: relative;
+    }
+  }
 }
 
 .no-underline {
