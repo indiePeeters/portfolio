@@ -1,9 +1,12 @@
 <template>
   <div ref="skillsContainer" class="home-header">
     <div class="home-header-content">
-      <span class="home-header-title typing-words">
-        <span>Hi! I am Indie<span ref="typingJobTitle" class="typing-job-title"></span></span>
-      </span>
+      <div class="home-header-title-cover">
+        <span class="home-header-title typing-words">
+          <span>Hi! I am Indie<span ref="typingJobTitle" class="typing-job-title"></span></span>
+        </span>
+        <img class="home-header-cover" src="/assets/cover.jpg">
+      </div>
       <div class="home-header-buttons">
         <a class="no-underline" @click="scrollIntoView('about-me')"><PrimaryButton buttonText="More about me"/></a>
         <a class="no-underline" @click="scrollIntoView('my-projects')"><PrimaryButton buttonText="More about my projects"/></a>
@@ -23,29 +26,6 @@ import PrimaryButton from '@/components/buttons/PrimaryButton.vue'
 export default defineComponent({
   components: {
     PrimaryButton
-  },
-  setup: () => {
-    const typingJobTitle = ref()
-
-    const textLoad = () => {
-        setTimeout(() => {
-          if(typingJobTitle.value) {
-            typingJobTitle.value.textContent = "Freelancer";
-          }
-        }, 0);
-        setTimeout(() => {
-          if(typingJobTitle.value) {
-            typingJobTitle.value.textContent = "Blogger";
-          }
-        }, 4000);
-        setTimeout(() => {
-          if(typingJobTitle.value) {
-            typingJobTitle.value!.textContent = "YouTuber";
-          }
-        }, 8000); //1s = 1000 milliseconds
-    }
-    textLoad();
-    setInterval(textLoad, 12000);
   },
   methods: {
     scrollIntoView(scrollTargetName: string) {
@@ -151,6 +131,23 @@ export default defineComponent({
   }
   .social-icon:hover {
     color: rgb(235, 213, 213);
+  }
+}
+
+.home-header-title-cover {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  height: 100px;
+
+  .home-header-title {
+    min-width: 350px  ;
+  }
+  .home-header-cover {
+    height: 250px;
+    border-radius: 150px;
+    top: -86px;
+    position: relative;
   }
 }
 

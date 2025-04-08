@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
 import ProjectView from '@/views/ProjectView.vue'
+import { onMounted } from 'vue';
 
 export const ROUTES = {
   home: 'home',
@@ -25,5 +26,15 @@ const router = createRouter({
 
   ]
 })
+
+onMounted(() => {
+  const params = new URLSearchParams(window.location.search);
+  const redirectPath = params.get('redirect');
+
+  if (redirectPath) {
+    window.history.replaceState({}, '', redirectPath); // Update URL without causing another reload
+    router.replace(redirectPath); // Ensure Vue Router recognizes the new path
+  }
+});
 
 export default router

@@ -1,7 +1,7 @@
 <template>
     <div class="my-certificates">
       <div class="title-container">
-        <div class="my-certificates-title"><span id="my-skills">My certificates</span></div>
+        <div class="my-certificates-title"><span id="my-certificates">My certificates</span></div>
         <div class="line"></div>
       </div>
       
@@ -9,7 +9,7 @@
         <div class="card" v-for="certificate in certificates">
           <img :src="certificate.imageUrl"/>
           <div>
-            <p class="mb-2">React</p>
+            <p class="mb-2 certificate-title">{{certificate.name}}</p>
             <span>{{certificate.date.toLocaleDateString()}}</span>
             <span>{{certificate.provider}} </span>
           </div>
@@ -32,7 +32,7 @@ export default defineComponent({
   },
   data() {
     const certificates = [
-      { name: "React", imageUrl: '/assets/skills/reactLogo.png', date: new Date(2025,3,24), provider: 'Coursera - Meta', fileName: 'coursera-meta-react-certificate-Indie-Peeters.pdf'}
+      { name: "Advanced React", imageUrl: '/assets/skills/reactLogo.png', date: new Date(2025,3,24), provider: 'Coursera - Meta', fileName: 'coursera-meta-react-certificate-Indie-Peeters.pdf'}
     ]
 
     return { 
@@ -54,14 +54,6 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-
-@media only screen and (max-width: 600px) {
-  .skills-container {
-    width: 100% !important;
-    max-height: 332px !important;
-    margin-left: 0px !important;
-  }
-}
 
 .my-certificates {
   display: flex;
@@ -103,6 +95,7 @@ export default defineComponent({
 
 .card {
   width: calc(100% / 2 - 14px);
+  max-width: 184px;
   background: #3F3B68;
   box-shadow: 2px 3px 4px 2px rgba(0, 0, 0, 0.25);
   border-radius: 30px;
@@ -113,6 +106,7 @@ export default defineComponent({
   align-items: center;
   flex-direction: column;
   padding: 16px;
+  text-align: center;
   img {
     width: 100px;
   }
@@ -124,9 +118,6 @@ export default defineComponent({
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  btn {
-
   }
 }
 
